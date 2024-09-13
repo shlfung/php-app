@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html  # Mount the current directory to the container
+      - ./data:/var/www/html/data  # Persist the SQLite database file in the "data" folder
+    container_name: php-app-web
+
+volumes:
+  db_data:
